@@ -1,6 +1,6 @@
-package com.practice.springboot.controller;
+package com.practice.springboot.todo.controller;
 
-import com.practice.springboot.service.LoginService;
+import com.practice.springboot.todo.service.LoginService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;

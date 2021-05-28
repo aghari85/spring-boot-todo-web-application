@@ -1,4 +1,4 @@
-package com.practice.springboot;
+package com.practice.springboot.todo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
