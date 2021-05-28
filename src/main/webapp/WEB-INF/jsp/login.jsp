@@ -1,6 +1,9 @@
 <html>
 <head><title>First JSP</title></head>
 <body>
-<h1>Hello! ${name}!!</h1>
+<form method="post">
+    Name: <input type="text" name="name"/> Password: <input type="password" name="password"> <input type="submit">
+    <font color="red">${errorMessage}</font>
+</form>
 </body>
 </html>
