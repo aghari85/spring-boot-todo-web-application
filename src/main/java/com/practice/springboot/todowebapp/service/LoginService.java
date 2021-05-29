@@ -1,4 +1,4 @@
-package com.practice.springboot.todo.service;
+package com.practice.springboot.todowebapp.service;
 
 import org.springframework.stereotype.Component;
 
@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 public class LoginService {
 
     public boolean validateUser(String userName, String password){
-        return userName.equalsIgnoreCase("Apple") && password.equalsIgnoreCase("apple");
+        return userName.equalsIgnoreCase(password);
     }
 }

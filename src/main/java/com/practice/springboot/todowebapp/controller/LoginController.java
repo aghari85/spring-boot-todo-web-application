@@ -1,13 +1,15 @@
-package com.practice.springboot.todo.controller;
+package com.practice.springboot.todowebapp.controller;
 
-import com.practice.springboot.todo.service.LoginService;
+import com.practice.springboot.todowebapp.service.LoginService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
+@SessionAttributes("name")
 public class LoginController {
 
     final LoginService loginService;
