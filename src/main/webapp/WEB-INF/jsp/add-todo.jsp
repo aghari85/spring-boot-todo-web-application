@@ -10,6 +10,7 @@
     <h1 class="h1">Add todo for ${name}</h1>
 
     <form:form method="post" modelAttribute="todo">
+        <form:label path="id" name="id"/>
         <div class="form-group row">
             <form:label path="description">Description</form:label>
             <div class="col-sm-10">

@@ -38,4 +38,23 @@ public class TodoService {
     public void deleteTodo(int id) {
         todos.remove(new TodoBean(id));
     }
+
+    public TodoBean retrieveByID(int id) {
+        for (TodoBean todo:
+        todos ) {
+            if(todo.getId() == id)
+                return todo;
+        }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(todos.get(2));
+    }
+
+    public void updateTodo(TodoBean todo) {
+        todos.remove(todo);
+        todos.add(todo);
+
+    }
 }
