@@ -1,12 +1,29 @@
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
-<head><title>Add TodoP</title></head>
+<html>
+<head><title>Add TodoP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
 <body>
-Add todo for ${name}
+<div class="container">
+    <h1 class="h1">Add todo for ${name}</h1>
 
-<form method="post">
-    Description <input type="text" name="description">
-    <input type="submit">
-</form>
+    <form:form method="post" modelAttribute="todo">
+        <div class="form-group row">
+            <form:label path="description">Description</form:label>
+            <div class="col-sm-10">
+                <form:input type="text" path="description" name="description" class="text-input" required="true"/>
+                <form:errors path="description" cssClass="text-warning"/>
+            </div>
+
+        </div>
+        <form:button type="submit" class="btn btn-primary">Submit</form:button>
+    </form:form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
 </body>
 </html>

@@ -34,4 +34,8 @@ public class TodoService {
         todos.add(new TodoBean(todos.size()+1,name, description, LocalDate.now(), false));
         return todos;
     }
+
+    public void deleteTodo(int id) {
+        todos.remove(new TodoBean(id));
+    }
 }
