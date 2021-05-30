@@ -2,14 +2,19 @@ package com.practice.springboot.todowebapp.controller;
 
 import com.practice.springboot.todowebapp.model.TodoBean;
 import com.practice.springboot.todowebapp.service.TodoService;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingErrorProcessor;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.beans.PropertyEditorSupport;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Controller
@@ -20,6 +25,21 @@ public class TodoController {
 
     public TodoController(TodoService todoService) {
         this.todoService = todoService;
+    }
+
+    @InitBinder
+    protected void initBinder(WebDataBinder binder) {
+        binder.registerCustomEditor(LocalDate.class, new PropertyEditorSupport() {
+            @Override
+            public void setAsText(String text) throws IllegalArgumentException{
+                setValue(LocalDate.parse(text, DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+            }
+
+            @Override
+            public String getAsText() throws IllegalArgumentException {
+                return DateTimeFormatter.ofPattern("dd/MM/yyyy").format((LocalDate) getValue());
+            }
+        });
     }
 
     @RequestMapping(value = "list-todos", method = RequestMethod.GET)
@@ -63,7 +83,7 @@ public class TodoController {
     @RequestMapping(value = "update-todo", method = RequestMethod.POST)
     public String updateTodo(ModelMap model, @Valid TodoBean todo){
         todo.setUser((String) model.get("name"));
-        todo.setTargetDate(LocalDate.now());
+        todo.setTargetDate(todo.getTargetDate());
         todoService.updateTodo(todo);
         return "redirect:/list-todos";
     }

@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head><title>Todos of ${name}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -24,7 +25,8 @@
             <c:forEach items="${todos}" var="todo">
                 <tr>
                     <td>${todo.description}</td>
-                    <td>${todo.targetDate}</td>
+                    <fmt:parseDate value="${todo.targetDate}"  type="date" pattern="yyyy-MM-dd" var="parsedDate" />
+                    <td><fmt:formatDate value="${parsedDate}" type="date" pattern="dd/MM/yyyy"/></td>
                     <td>${todo.done}</td>
                     <td><a class="btn btn-success" href="/update-todo?id=${todo.id}">Update</a></td>
                     <td><a class="btn btn-warning" href="/delete-todo?id=${todo.id}">Delete</a></td>
