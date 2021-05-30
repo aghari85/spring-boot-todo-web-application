@@ -30,11 +30,10 @@
     </form:form>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script
         src="webjars/bootstrap-datepicker/1.0.1/js/bootstrap-datepicker.js"></script>
-
 <script>
     $('#targetDate').datepicker({
         format : 'dd/mm/yyyy'
